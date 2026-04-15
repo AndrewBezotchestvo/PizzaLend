@@ -101,7 +101,7 @@
             tBxDateYear = new TextBox();
             tBxDateMonth = new TextBox();
             tBxCardNumber = new TextBox();
-            button1 = new Button();
+            btnOrderPay = new Button();
             tabControl.SuspendLayout();
             tabLogin.SuspendLayout();
             groupBoxLogin.SuspendLayout();
@@ -525,6 +525,7 @@
             tableLayoutPanel2.SetRowSpan(checkedListBoxAddities, 2);
             checkedListBoxAddities.Size = new Size(274, 134);
             checkedListBoxAddities.TabIndex = 5;
+            checkedListBoxAddities.SelectedIndexChanged += checkedListBoxAddities_SelectedIndexChanged;
             // 
             // comboBoxOrder
             // 
@@ -549,6 +550,7 @@
             btnAddPizza.TabIndex = 7;
             btnAddPizza.Text = "ADD PIZZA";
             btnAddPizza.UseVisualStyleBackColor = false;
+            btnAddPizza.Click += btnAddPizza_Click;
             // 
             // btnOrderPizza
             // 
@@ -564,6 +566,7 @@
             btnOrderPizza.TabIndex = 8;
             btnOrderPizza.Text = "ORDER";
             btnOrderPizza.UseVisualStyleBackColor = false;
+            btnOrderPizza.Click += btnOrderPizza_Click;
             // 
             // label9
             // 
@@ -766,7 +769,7 @@
             // 
             flowLayoutPanel1.Controls.Add(groupBoxDeliveryInfo);
             flowLayoutPanel1.Controls.Add(groupBoxPaymentInfo);
-            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(btnOrderPay);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(0, 0);
@@ -955,6 +958,7 @@
             radioButtonCard.TabStop = true;
             radioButtonCard.Text = "card";
             radioButtonCard.UseVisualStyleBackColor = true;
+            radioButtonCard.CheckedChanged += radioButtonCash_CheckedChanged;
             // 
             // radioButtonCash
             // 
@@ -967,6 +971,7 @@
             radioButtonCash.TabStop = true;
             radioButtonCash.Text = "cash";
             radioButtonCash.UseVisualStyleBackColor = true;
+            radioButtonCash.CheckedChanged += radioButtonCash_CheckedChanged;
             // 
             // groupBox1
             // 
@@ -1047,18 +1052,19 @@
             tBxCardNumber.Size = new Size(278, 34);
             tBxCardNumber.TabIndex = 0;
             // 
-            // button1
+            // btnOrderPay
             // 
-            button1.BackColor = Color.CornflowerBlue;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            button1.ForeColor = SystemColors.HighlightText;
-            button1.Location = new Point(53, 590);
-            button1.Name = "button1";
-            button1.Size = new Size(176, 58);
-            button1.TabIndex = 2;
-            button1.Text = "ORDER";
-            button1.UseVisualStyleBackColor = false;
+            btnOrderPay.BackColor = Color.CornflowerBlue;
+            btnOrderPay.FlatStyle = FlatStyle.Flat;
+            btnOrderPay.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnOrderPay.ForeColor = SystemColors.HighlightText;
+            btnOrderPay.Location = new Point(53, 590);
+            btnOrderPay.Name = "btnOrderPay";
+            btnOrderPay.Size = new Size(176, 58);
+            btnOrderPay.TabIndex = 2;
+            btnOrderPay.Text = "ORDER";
+            btnOrderPay.UseVisualStyleBackColor = false;
+            btnOrderPay.Click += btnOrderPay_Click;
             // 
             // PizzaTime
             // 
@@ -1175,7 +1181,7 @@
         private TextBox tBxDateYear;
         private TextBox tBxDateMonth;
         private TextBox tBxCardNumber;
-        private Button button1;
+        private Button btnOrderPay;
         private TabPage tabRegister;
         private GroupBox groupBox2;
         private TableLayoutPanel tableLayoutPanel5;
